@@ -5,6 +5,8 @@ from flask import make_response, jsonify
 
 
 
+
+
 app = Flask(__name__)
 CORS(app)
 
@@ -14,5 +16,4 @@ def response_api():
         jsonify({
             "msg": "api record video on air"
         }),
-        
     )

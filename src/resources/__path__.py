@@ -3,4 +3,4 @@ import os
 
 
 
-PATH_RESOURCES = os.path(os.path.abspath(__file__))
+PATH_RESOURCES = os.path.dirname(os.path.abspath(__file__))
