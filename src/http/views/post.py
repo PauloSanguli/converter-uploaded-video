@@ -6,14 +6,17 @@ from flask import request
 
 from src.handlers import Handler
 
+import json
 
 
 
-@app.post("/record-video")
+@app.post("/record-video/")
 def record_video():
     try:
         VIDEO_TO_SAVE = request.files.get("video-captured")
-        Handler.save_video(VIDEO_TO_SAVE)
+        local_capture = json.loads(request.form.get("jsonData"))
+        
+        Handler.save_video(VIDEO_TO_SAVE, local_capture["local"].lower())
     except Exception as error:
         print(error)
         return make_response(
